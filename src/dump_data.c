@@ -290,6 +290,7 @@ int main(int argc, char **argv) {
     for (i=0;i<FRAME_SIZE;i++) x[i] = tmp[i];
     fread(tmp, sizeof(short), FRAME_SIZE, f1);
     if (feof(f1)) {
+      break; //ei exit at the end. don't rewind.
       if (!training) break;
       rewind(f1);
       fread(tmp, sizeof(short), FRAME_SIZE, f1);
